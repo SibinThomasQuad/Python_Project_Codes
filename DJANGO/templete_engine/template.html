@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ page_title|default:"My Page" }}</title>
+</head>
+<body>
+    <h1>Welcome, {{ user.username }}!</h1>
+    
+    <ul>
+        {% for item in items %}
+            <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    
+    {% if is_changed %}
+        <!-- Display this message if something has changed -->
+        <p>Something has changed!</p>
+    {% else %}
+        <!-- Display this message if nothing has changed -->
+        <p>Nothing has changed.</p>
+    {% endif %}
+    
+    <a href="{% url 'my_view_name' %}">Link to a view</a>
+    
+    {% block content %}
+        <p>This is the default content.</p>
+    {% endblock %}
+</body>
+</html>
