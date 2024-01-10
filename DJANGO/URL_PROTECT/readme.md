@@ -3,13 +3,7 @@ Certainly, if you have a large number of URLs and you want to simplify the code,
 ```python
 from django.contrib.auth.decorators import user_passes_test
 from django.urls import path
-from .views import (
-    create_moring_trial_status,
-    view_moring_trial_status,
-    moring_trial_data_json,
-    moring_trial_menu,
-    moring_trial_detail_view,
-)
+
 
 def user_belongs_to_group(allowed_groups):
     return user_passes_test(lambda user: user.groups.filter(name__in=allowed_groups).exists())
