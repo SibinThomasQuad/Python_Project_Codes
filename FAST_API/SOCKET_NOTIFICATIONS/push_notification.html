@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push Notification Example</title>
+</head>
+<body>
+
+<button onclick="showNotification()">Show Notification</button>
+
+<script>
+function showNotification() {
+    // Check if the browser supports notifications
+    if (!('Notification' in window)) {
+        alert('This browser does not support system notifications');
+    } else if (Notification.permission === 'granted') {
+        // If permission is already granted, show the notification
+        createNotification();
+    } else if (Notification.permission !== 'denied') {
+        // If permission is not denied, request permission from the user
+        Notification.requestPermission().then(function (permission) {
+            if (permission === 'granted') {
+                createNotification();
+            }
+        });
+    }
+}
+
+function createNotification() {
+    // Create a notification
+    var notification = new Notification('Simple Push Notification', {
+        body: 'This is a sample push notification.',
+        icon: 'path/to/icon.png' // Replace with the path to your icon image
+    });
+
+    // Handle click on the notification
+    notification.onclick = function () {
+        alert('Notification clicked!');
+    };
+}
+</script>
+
+</body>
+</html>
