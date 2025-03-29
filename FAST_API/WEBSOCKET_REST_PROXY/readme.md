@@ -1,6 +1,6 @@
 Here's the updated `README.md` with a full explanation, including an example of both the WebSocket message and the WebSocket server's response:
 
-```markdown
+
 # FastAPI WebSocket Proxy
 
 This project provides a WebSocket proxy service built with **FastAPI** that allows clients to interact with various HTTP APIs through WebSocket connections. The proxy receives a WebSocket message containing details of an HTTP request, sends the request to the specified endpoint, and returns the response via the WebSocket connection.
